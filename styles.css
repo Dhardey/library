@@ -1,0 +1,258 @@
+:root {
+    --mainBackground: #353535;
+    --grey: #FDF7FF;
+    --blue: #1EAEDB;
+    --pink: #CF185E;
+    --green: #06D6A0;
+}
+
+html, body { 
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    display: grid;
+    grid-template-areas:
+    "header"
+    "content";
+    grid-template-rows: 1fr 10fr;
+    font-family: 'Poppins', sans-serif;
+    background-color: #353535;
+}
+/* Header, add button after first card */
+.header{
+    display: flex;
+    grid-area: header;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--grey);
+    color: var(--mainGrey);
+}
+.h-text {
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    align-items: center;
+    gap: 10px;
+}
+
+#h-book {
+    max-width: 50px;
+    max-height: auto;
+}
+
+.postAddBtn {
+    padding-right: 10px;
+}
+
+#Add2 {
+    color: white;
+    font-size: 25px;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    border: none;
+    align-items: center;
+    background-image: linear-gradient(90deg, hsla(166, 100%, 63%, 1) 0%, hsla(257, 23%, 51%, 1) 49%, hsla(337, 79%, 45%, 1) 100%);
+    cursor: pointer;
+    transform: scale(0);
+}
+
+#Add2.active {
+    transform: scale(1);
+}
+
+#Add2.active:hover {
+    opacity: 50%;
+}
+/* First card that shows on page */
+.introcard.active {
+    grid-area: content;
+    color: var(--mainBackground);
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 20px;
+    background: var(--grey);
+    box-shadow: 0 8px 8px -4px var(--pink);
+    margin-top: 50px;
+    align-self: top;
+    justify-self: center;
+    justify-content: center;
+    font-size: 40px;
+    padding: 10px;
+    max-height: 150px;
+    transition: 200ms ease-in-out;
+    transform: scale(1);
+}
+
+.introcard{
+    transform: scale(0);
+}
+
+#addfirst {
+    font-size: 30px;
+    text-emphasis: none;
+    border-radius: 25px;
+    color: var(--grey);
+    background-color: var(--pink);
+    border: none;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 150ms ease-in-out;
+}
+
+#addfirst:hover {
+    box-shadow: 0 0 10px 0 var(--pink) inset, 0 0 10px 4px var(--pink);
+    cursor: pointer;
+    background-color: var(--grey);
+    color: var(--pink);
+}
+
+/* Add Book Card*/
+#addBookCard {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 20px;
+    background: var(--grey);
+    box-shadow: 0 8px 8px -4px var(--darkGrey);
+    align-self: top;
+    justify-self: center;
+    max-height: 400px;
+    margin-top: 10px;
+    transform: scale(0);
+    transition: 200ms ease-in-out;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: var(--darkGrey)
+}
+
+#addBookCard.active {
+    transform: scale(1);
+}
+
+#submitBtn {
+    border-radius: 20px;
+    border: none;
+    background-color: var(--green);
+    color: var(--mainBackground);
+    font-size: 20px;
+}
+
+#submitBtn:hover {
+    box-shadow: 0 0 10px 0 var(--green) inset, 0 0 10px 4px var(--green);
+    cursor: pointer;
+    background-color: var(--grey);
+    color: var(--green);
+}
+
+.add-heading {
+    text-align: center;
+}
+
+#close {
+    margin-right: -85%;
+    margin-top: 8px;
+    background: none;
+    border: none;
+    font-size: 15px;
+}
+
+#close:hover {
+    cursor: pointer;
+    opacity: 25%;
+}
+
+#addBookForm {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#titleVal, #authorVal, #pagesVal {
+    border-radius: 25px;
+    border: 1px solid var(--green);
+    padding: 20px;
+    height: 30%;
+}
+
+/* Main Content Grid */
+
+.booksGrid {
+    display: grid;
+    grid-area: content;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
+    background-color: var(--mainBackground);
+}
+
+.dispBook {
+    padding: 1em;
+    max-height: 80%;
+    margin: 25px;
+    transition: 0.3s;
+    overflow-wrap: break-word;
+    border-radius: 20px;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    border-left: 5px solid;
+    border-left-color: var(--blue);
+    background-color: var(--grey);
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: break-word;
+    width: 250px;
+    height: 250px;
+    color: var(--mainBackground);
+}
+
+p {
+    height: 50px;
+}
+
+.dispBtns {
+    margin-bottom: 10px;
+    max-height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+#title {
+    grid-area: title;
+    text-overflow: clip;
+}
+
+#auth {
+    grid-area: author;
+}
+
+#statusBtn:hover, #tbr:hover, #read:hover {
+    cursor: pointer;
+    opacity: 70%;
+}
+#statusBtn, #tbr, #read, #deleteBtn {
+    font-size: 15px;
+    border: none;
+    border-radius: 20px;
+}
+
+.statusBtns.read {
+    background-color: var(--green);
+    color: var(--mainBackground);
+}
+
+.statusBtns.tbr {
+    background-color: var(--pink);
+    color: var(--grey);
+}
+
+#deleteBtn:hover {
+    cursor: pointer;
+    background-color: var(--pink);
+    opacity: 90%;
+}
